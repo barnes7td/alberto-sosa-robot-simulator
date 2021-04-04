@@ -6,10 +6,12 @@ import { CanvasService } from '../canvas.service';
   providedIn: 'root'
 })
 export class Robot {
-  private x;
-  private y;
-  private color;
-  private f;
+  // Note: I saw a video about when private variables were introduced into javaScript, 
+  // and the hosts of the show were like just don't write a method that manipulates that variable.
+  public x;
+  public y;
+  public color;
+  public f;
 
   constructor(private canvasService: CanvasService) {
     this.x = getRandomInt(0, 4);

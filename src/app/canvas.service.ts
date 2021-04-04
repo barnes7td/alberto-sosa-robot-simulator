@@ -1,9 +1,15 @@
 import { Injectable } from '@angular/core';
+import { Goal } from './models/goal';
+import { Robot } from './models/robot';
+// TODO import { RobotFacing } from './models/robot-facing.enum';
 
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class CanvasService {
+  // TODO declare robot facing as enum but then you have to change more stuff
   robotFacing = ['north', 'east', 'south', 'west']; // clockwise
 
   private readonly maxX = 5; // x total
@@ -19,22 +25,23 @@ export class CanvasService {
   constructor() {
   }
 
-  init(canvas) {
+  init(canvas): void {
     this.context = canvas.getContext('2d');
   }
 
-  render(robot, goal) {
+  render(robot: Robot, goal: Goal): void {
     this.context.clearRect(0, 0, 551, 580); // TODO: Magic dimensions
     this.renderCanvas();
     this.renderGoal(robot, goal);
     this.renderRobot(robot);
   }
 
-  atGoal(robot, goal) {
+  // NOTE: if you have private params and declare type you would not be able to verify this
+  atGoal(robot: Robot, goal: Goal): boolean {
     return (robot.x === goal.x && robot.y === goal.y);
   }
 
-  wallInFront(robot) {
+  wallInFront(robot: Robot): boolean {
     switch (robot.f) {
       case 'north': {
         return robot.y === this.maxY - 1;
@@ -49,12 +56,12 @@ export class CanvasService {
         return robot.x === 0;
       }
       default:
-        console.log(`Invalid orientation ${robot.f}`);
+        console.error(`Invalid orientation ${robot.f}`);
         return false;
     }
   }
 
-  renderCanvas() {
+  renderCanvas(): void {
     this.context.strokeStyle = '#000';
 
     for (let x = 0; x < (this.maxX + 1); x++) { // draw 6 lines
@@ -76,11 +83,11 @@ export class CanvasService {
     this.context.stroke();
   }
 
-  validateBound(input, toCheckAxis) {
+  validateBound(input, toCheckAxis): boolean {
     if (isNaN(input)) {
       // 'Please enter a numeric coordinates! // todo how to send errors
       return false;
-    } else if (input < 0 || input > (this[toCheckAxis] - 1)) {
+    } else if (input < 0 || input > (toCheckAxis - 1)) {
       // 'Coordinates out of range!' // todo how to send errors
       return false;
     } else {
@@ -88,7 +95,7 @@ export class CanvasService {
     }
   }
 
-  validateFacing(face) {
+  validateFacing(face): boolean {
     if (this.robotFacing.indexOf(face.toLowerCase()) < 0) {
       // 'Wrong facing!' // todo how to send errors
       return false;
@@ -97,7 +104,7 @@ export class CanvasService {
     }
   }
 
-  renderRobot(robot) {
+  renderRobot(robot: Robot): void {
     const robotAxisX = (robot.x + 1) * 100; // the center of the destination grid horizontally
     const robotAxisY = (this.maxY - robot.y) * 100; // the center of the destination grid vertically
 
@@ -135,7 +142,7 @@ export class CanvasService {
     this.context.fill(path);
   }
 
-  renderGoal(robot, goal) {
+  renderGoal(robot: Robot, goal: Goal): void {
     const centerX = (goal.x + 1) * 100;
     const centerY = (this.maxY - goal.y) * 100;
     const radius = 35;

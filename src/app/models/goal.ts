@@ -5,8 +5,8 @@ import {getRandomInt} from '../utils.js';
   providedIn: 'root'
 })
 export class Goal {
-  private readonly x;
-  private readonly y;
+  public readonly x;
+  public readonly y;
 
   constructor() {
         this.x = getRandomInt(0, 4);
