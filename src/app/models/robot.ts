@@ -8,10 +8,10 @@ import { CanvasService } from '../canvas.service';
 export class Robot {
   // Note: I saw a video about when private variables were introduced into javaScript, 
   // and the hosts of the show were like just don't write a method that manipulates that variable.
-  public x;
-  public y;
-  public color;
-  public f;
+  public x: number;
+  public y: number;
+  public color: string;
+  public f: string;
 
   constructor(private canvasService: CanvasService) {
     this.x = getRandomInt(0, 4);
@@ -24,7 +24,12 @@ export class Robot {
   /* --------------------------------------------------- */
   /*         the following are command functions
   /* --------------------------------------------------- */
-  place(cmd) {
+
+  /**
+   * @description this allows users 'place' the robot to wherever it needs to be
+   * @param cmd should contain two commas
+   */
+  place(cmd: string): void {
     const newPos = cmd.split(','); // get x y f from the command
     if (newPos.length < 3) {
       // this.printErrors('incorrect position / direction');
@@ -43,7 +48,7 @@ export class Robot {
     }
   }
 
-  move() {
+  move(): void {
     switch (this.f) {
       case 'north': {
         const newY = this.y + 1;
