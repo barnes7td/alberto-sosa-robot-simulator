@@ -12,7 +12,7 @@ import { Goal } from './models/goal';
 export class AppComponent implements AfterViewInit{
   @ViewChild('canvasRef') canvasRef: ElementRef<HTMLCanvasElement>;
 
-  title = 'angular-robot-simulator';
+  title = 'Angular Robot Simulator';
 
   robot;
   private goal;

@@ -39,5 +39,5 @@ describe('InstructionsComponent', () => {
     expect(ex3.textContent).toContain('left');
     expect(ex4.textContent).toContain('right');
     expect(ex5.textContent).toContain('place 1,2,west');
-  })
+  });
 });

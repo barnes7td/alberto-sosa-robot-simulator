@@ -36,5 +36,5 @@ describe('StatusComponent', () => {
     expect(spanX.textContent).toContain('Axis X: 1');
     expect(spanY.textContent).toContain('Axis Y: 2');
     expect(spanF.textContent).toContain('Facing: north');
-  })
+  });
 });

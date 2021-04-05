@@ -6,7 +6,7 @@ import { CanvasService } from '../canvas.service';
   providedIn: 'root'
 })
 export class Robot {
-  // Note: I saw a video about when private variables were introduced into javaScript, 
+  // Note: I saw a video about when private variables were introduced into javaScript,
   // and the hosts of the show were like just don't write a method that manipulates that variable.
   public x: number;
   public y: number;
@@ -82,15 +82,15 @@ export class Robot {
         break;
     }
   }
-  left() {
+  left(): void {
     this.rotate(false); // get the next from this.robotFacing array in anti-clockwise direction
   }
 
-  right() {
+  right(): void {
     this.rotate(true); // get the next from this.robotFacing array in clockwise direction
   }
 
-  rotate(clockwise) {
+  rotate(clockwise): void {
     const originalFacing = this.f;
     const originalFacingIndex = this.canvasService.robotFacing.indexOf(originalFacing);
     let newFacingIndex;
