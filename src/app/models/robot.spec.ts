@@ -3,7 +3,9 @@ import { TestBed } from '@angular/core/testing';
 import { Robot } from './robot';
 
 describe('RobotService', () => {
+  // Note: this should probably be robot.service.ts
   let service: Robot;
+
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
