@@ -1,5 +1,3 @@
-<p>error-card works!</p>
-
 <div *ngFor="let msgs of errors">
-    <p>{{msgs}}</p>
+   <span class="msg"> <p><i>{{msgs}}</i></p> <div> <p (click)='removeError(msgs)'  id='x'>x</p> </div></span>
 </div>

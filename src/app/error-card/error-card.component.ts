@@ -9,7 +9,7 @@ import { ErrorReporterService } from '../shared/services/error-reporter.service'
 })
 export class ErrorCardComponent implements OnInit {
 
-  public errors: [string] = [''];
+  public errors: string[] = ['die hard'];
   public subscription: Subscription;
 
   public errMsgs: Observable<string[]>;
@@ -18,7 +18,11 @@ export class ErrorCardComponent implements OnInit {
   constructor(private errorService: ErrorReporterService) { }
 
   ngOnInit(): void {
-    this.subscription = this.errorService.getError().subscribe(msg => {console.log(msg); this.errors.push(msg)} );
+    this.subscription = this.errorService.getError().subscribe(msg => { this.errors.push(msg); } );
+  }
+
+  removeError(err: string): string[]{
+    return this.errors = this.errors.filter(elem => elem !== err);
   }
 
 

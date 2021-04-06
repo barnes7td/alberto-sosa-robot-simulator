@@ -86,10 +86,10 @@ export class CanvasService {
 
   validateBound(input, toCheckAxis): boolean {
     if (isNaN(input)) {
-      this.errorService.updateError('Please enter numeric coordinates!'); // 'Please enter a numeric coordinates! // todo how to send errors
+      this.errorService.updateError('Please enter numeric coordinates!'); // 'Please enter a numeric coordinates!
       return false;
     } else if (input < 0 || input > (toCheckAxis - 1)) {
-      this.errorService.updateError('Coordinates out of range!'); // 'Coordinates out of range!' // todo how to send errors
+      this.errorService.updateError('Coordinates out of range!'); // 'Coordinates out of range!'
       return false;
     } else {
       return true;
@@ -98,7 +98,7 @@ export class CanvasService {
 
   validateFacing(face): boolean {
     if (this.robotFacing.indexOf(face.toLowerCase()) < 0) {
-      // 'Wrong facing!' // todo how to send errors
+      this.errorService.updateError('Wrong facing!'); // 'Wrong facing!'
       return false;
     } else {
       return true;

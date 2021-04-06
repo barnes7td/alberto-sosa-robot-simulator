@@ -3,6 +3,7 @@ import MainLoop from 'mainloop.js';
 import { CanvasService } from './shared/services/canvas.service';
 import { Robot } from './shared/models/robot';
 import { Goal } from './shared/models/goal';
+import { ErrorReporterService } from './shared/services/error-reporter.service';
 
 @Component({
   selector: 'app-root',
@@ -34,7 +35,7 @@ export class AppComponent implements AfterViewInit{
     },
   };
 
-  constructor(private canvasService: CanvasService) {
+  constructor(private canvasService: CanvasService, private errorService: ErrorReporterService) {
     this.restart();
   }
 
@@ -59,7 +60,7 @@ export class AppComponent implements AfterViewInit{
     if (cmdMethod) {
       cmdMethod(sanitizedValueArray.join()); // call controller functions by name
     } else {
-      // 'Incorrect command' // todo handle errors
+      this.errorService.updateError('Incorrect command');
     }
   }
 

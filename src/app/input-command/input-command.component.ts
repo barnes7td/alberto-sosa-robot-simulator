@@ -14,7 +14,7 @@ export class InputCommandComponent implements OnInit {
   }
 
   onEnter(e): void {
-      e.target.select(); // TODO idk what this is for if possible remove
+      // e.target.select(); // TODO idk what this is for if possible remove
       return this.userCommand.emit({value: e.target.value});
   }
 }
