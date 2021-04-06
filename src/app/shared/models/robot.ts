@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {getRandomInt} from '../utils';
-import { CanvasService } from '../canvas.service';
+import {getRandomInt} from '../util/utils';
+import { CanvasService } from '../services/canvas.service';
 
 @Injectable({
   providedIn: 'root'

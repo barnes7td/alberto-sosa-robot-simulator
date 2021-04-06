@@ -1,8 +1,8 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import MainLoop from 'mainloop.js';
-import { CanvasService } from './canvas.service';
-import { Robot } from './models/robot';
-import { Goal } from './models/goal';
+import { CanvasService } from './shared/services/canvas.service';
+import { Robot } from './shared/models/robot';
+import { Goal } from './shared/models/goal';
 
 @Component({
   selector: 'app-root',

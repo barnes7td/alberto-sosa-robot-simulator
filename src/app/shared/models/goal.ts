@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {getRandomInt} from '../utils.js';
+import {getRandomInt} from '../util/utils.js';
 
 @Injectable({
   providedIn: 'root'

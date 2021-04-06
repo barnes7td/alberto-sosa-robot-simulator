@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Goal } from './models/goal';
-import { Robot } from './models/robot';
+import { Goal } from '../models/goal';
+import { Robot } from '../models/robot';
 // TODO import { RobotFacing } from './models/robot-facing.enum';
 
 @Injectable({

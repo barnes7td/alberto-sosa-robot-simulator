@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 import { CanvasService } from './canvas.service';
-import { Robot } from './models/robot';
-import { Goal } from './models/goal';
-import { Goal as MockGoal } from './models/goal.mock.spec';
+import { Robot } from '../models/robot';
+import { Goal } from '../models/goal';
+import { Goal as MockGoal } from '../models/goal.mock.spec';
 
 
 describe('CanvasService', () => {
