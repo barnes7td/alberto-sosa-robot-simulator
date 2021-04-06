@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
+import { ErrorReporterService } from '../shared/services/error-reporter.service';
 
 @Component({
   selector: 'app-error-card',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ErrorCardComponent implements OnInit {
 
-  constructor() { }
+  public errors: [string] = [''];
+  public subscription: Subscription;
+
+  public errMsgs: Observable<string[]>;
+
+
+  constructor(private errorService: ErrorReporterService) { }
 
   ngOnInit(): void {
+    this.subscription = this.errorService.getError().subscribe(msg => {console.log(msg); this.errors.push(msg)} );
   }
+
+
 
 }

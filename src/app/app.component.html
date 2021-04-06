@@ -8,6 +8,7 @@
   <main>
     <app-input-command (userCommand)="onUserCommand($event)">
     </app-input-command>
+    <app-error-card></app-error-card>
     <div class="content">
       <app-status [currentRobot]="robot"></app-status>
     </div>

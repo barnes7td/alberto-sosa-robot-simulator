@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Goal } from '../models/goal';
 import { Robot } from '../models/robot';
+import { ErrorReporterService } from './error-reporter.service';
 // TODO import { RobotFacing } from './models/robot-facing.enum';
 
 @Injectable({
@@ -22,7 +23,7 @@ export class CanvasService {
   private robotSize = 25; // is the arrow size actually
   private context;
 
-  constructor() {
+  constructor(private errorService: ErrorReporterService) {
   }
 
   init(canvas): void {
@@ -85,10 +86,10 @@ export class CanvasService {
 
   validateBound(input, toCheckAxis): boolean {
     if (isNaN(input)) {
-      // 'Please enter a numeric coordinates! // todo how to send errors
+      this.errorService.updateError('Please enter numeric coordinates!'); // 'Please enter a numeric coordinates! // todo how to send errors
       return false;
     } else if (input < 0 || input > (toCheckAxis - 1)) {
-      // 'Coordinates out of range!' // todo how to send errors
+      this.errorService.updateError('Coordinates out of range!'); // 'Coordinates out of range!' // todo how to send errors
       return false;
     } else {
       return true;
