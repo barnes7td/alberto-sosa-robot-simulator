@@ -99,7 +99,7 @@ export class CanvasService {
     }
   }
 
-  validateFacing(face): boolean {
+  validateFacing(face: string): boolean {
     if (this.robotFacing.indexOf(face.toLowerCase()) < 0) {
       this.errorService.updateError('Wrong facing!'); // 'Wrong facing!'
       return false;

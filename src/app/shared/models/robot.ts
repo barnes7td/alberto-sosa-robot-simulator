@@ -90,7 +90,7 @@ export class Robot {
     this.rotate(true); // get the next from this.robotFacing array in clockwise direction
   }
 
-  rotate(clockwise): void {
+  rotate(clockwise: boolean): void {
     const originalFacing = this.f;
     const originalFacingIndex = this.canvasService.robotFacing.indexOf(originalFacing);
     let newFacingIndex;
