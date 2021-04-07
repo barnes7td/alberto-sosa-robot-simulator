@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { InputCommandComponentModule } from './input-command/input-command.component.module';
 import { InstructionsComponent } from './instructions/instructions.component';
 import { StatusComponent } from './status/status.component';
+import { ErrorCardComponent } from './error-card/error-card.component';
 
 describe('AppComponent', () => {
   let title: HTMLElement;
@@ -19,11 +20,13 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         InstructionsComponent,
-        StatusComponent
+        StatusComponent,
+        ErrorCardComponent
       ],
     }).compileComponents();
     fixture = TestBed.createComponent(AppComponent);
     app = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
   it('creates the app', () => {

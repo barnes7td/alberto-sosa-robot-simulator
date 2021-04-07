@@ -3,10 +3,12 @@ import { CanvasService } from './canvas.service';
 import { Robot } from '../models/robot';
 import { Goal } from '../models/goal';
 import { Goal as MockGoal } from '../models/goal.mock.spec';
+import { ErrorReporterService } from './error-reporter.service';
 
 
 describe('CanvasService', () => {
   let service: CanvasService;
+  let errorService: ErrorReporterService;
   let spy: any;
   let spy1: any;
   let spy2: any;
@@ -19,7 +21,8 @@ describe('CanvasService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(CanvasService);
-    robot = new Robot(service);
+    errorService = TestBed.inject(ErrorReporterService);
+    robot = new Robot(service, errorService );
   });
 
 
@@ -85,7 +88,7 @@ describe('CanvasService', () => {
 
     // TODO figure out how to test context and html canvas stuff
     // spy4 = spyOn(service, 'context');
-    robot = new Robot(service);
+    robot = new Robot(service, errorService);
     goal = new Goal();
     service.render(robot, goal);
     expect(spy1).toHaveBeenCalled();
