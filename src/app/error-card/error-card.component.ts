@@ -9,7 +9,7 @@ import { ErrorReporterService } from '../shared/services/error-reporter.service'
 })
 export class ErrorCardComponent implements OnInit {
 
-  public errors: string[] = ['die hard'];
+  public errors: string[] = [];
   public subscription: Subscription;
 
   public errMsgs: Observable<string[]>;
