@@ -84,11 +84,14 @@ export class CanvasService {
     this.context.stroke();
   }
 
-  validateBound(input, toCheckAxis): boolean {
+  validateBound(input: number, toCheckAxis: string): boolean {
+    let maxAxis;
+    toCheckAxis === 'maxX' ? maxAxis = this.maxX : maxAxis = this.maxY;
     if (isNaN(input)) {
       this.errorService.updateError('Please enter numeric coordinates!'); // 'Please enter a numeric coordinates!
       return false;
-    } else if (input < 0 || input > (toCheckAxis - 1)) {
+    } else if (input < 0 || input > (maxAxis - 1)) {
+
       this.errorService.updateError('Coordinates out of range!'); // 'Coordinates out of range!'
       return false;
     } else {

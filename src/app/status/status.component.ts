@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./status.component.scss']
 })
 export class StatusComponent implements OnInit {
-  @Input() currentRobot: {x: string, y: string, f: string };
+  @Input() currentRobot: {x: number, y: number, f: string };
   constructor() { }
 
   ngOnInit(): void {

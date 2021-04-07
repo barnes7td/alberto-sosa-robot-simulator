@@ -51,13 +51,13 @@ describe('CanvasService', () => {
 
   it('verifies input is within bounds', () => {
    // service.validateBound('4,4,north', 5);
-    expect(service.validateBound('4', 5)).toBeTruthy();
+    expect(service.validateBound(4, 'maxX')).toBeTruthy();
   });
 
   it('verifies input is out of bounds', () => {
     // service.validateBound('4,4,north', 5);
-     expect(service.validateBound(-7, 5)).toBeFalse();
-     expect(service.validateBound(8, 5)).toBeFalse();
+     expect(service.validateBound(-7, 'maxY')).toBeFalse();
+     expect(service.validateBound(8, 'maxX')).toBeFalse();
    });
 
   it('validates facing', () => {

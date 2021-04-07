@@ -15,8 +15,8 @@ export class AppComponent implements AfterViewInit{
 
   title = 'Angular Robot Simulator';
 
-  robot;
-  private goal;
+  robot: Robot;
+  private goal: Goal;
   private commands = {
     move: () => {
       this.robot.move();
@@ -51,7 +51,12 @@ export class AppComponent implements AfterViewInit{
       .start();
   }
 
-  onUserCommand(e) {
+  /**
+   * @param e this is an $event type object
+   */
+
+  onUserCommand(e: any): void{
+    console.log('declare it as ', typeof e);
     const sanitizedValue = e.value.trim().toLocaleLowerCase();
     const sanitizedValueArray = sanitizedValue.split(' ');
     const firstWordEntered = sanitizedValueArray.splice(0, 1)[0];
@@ -64,8 +69,12 @@ export class AppComponent implements AfterViewInit{
     }
   }
 
-  restart() {
+  restart(): void {
     this.robot = new Robot(this.canvasService);
     this.goal = new Goal();
+    if (this.canvasService.atGoal(this.robot, this.goal)){
+      this.restart();
+    }
+    this.errorService.updateError('clear');
   }
 }

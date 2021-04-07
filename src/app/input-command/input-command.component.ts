@@ -1,4 +1,3 @@
-import { dependenciesFromGlobalMetadata } from '@angular/compiler/src/render3/r3_factory';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({

@@ -14,7 +14,7 @@ describe('ErrorReporterService', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ ErrorCardComponent ],
-      providers:[ErrorReporterService, CanvasService]
+      providers: [ErrorReporterService, CanvasService]
     })
     .compileComponents();
   });
@@ -32,9 +32,9 @@ describe('ErrorReporterService', () => {
     expect(service).toBeDefined();
   });
 
-  it('should omit and provide observable values', () => {
+  it('should emit and provide observable values', () => {
     component.errors = [];
-    canvas.validateBound('asdf', 'asdf');
+    canvas.validateBound(5, 'asdf');
     fixture.detectChanges();
     expect(component.errors.length).toBe(1);
   });

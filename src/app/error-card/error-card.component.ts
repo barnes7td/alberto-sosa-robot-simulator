@@ -18,7 +18,7 @@ export class ErrorCardComponent implements OnInit {
   constructor(private errorService: ErrorReporterService) { }
 
   ngOnInit(): void {
-    this.subscription = this.errorService.getError().subscribe(msg => { this.errors.push(msg); } );
+    this.subscription = this.errorService.getError().subscribe(msg => { msg === 'clear' ? this.errors = [] : this.errors.push(msg); } );
   }
 
   removeError(err: string): string[]{
