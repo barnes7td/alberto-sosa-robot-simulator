@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {getRandomInt} from '../util/utils';
 import { CanvasService } from '../services/canvas.service';
+import { ErrorReporterService } from '../services/error-reporter.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class Robot {
   public color: string;
   public f: string;
 
-  constructor(private canvasService: CanvasService) {
+  constructor(private canvasService: CanvasService, private errorService: ErrorReporterService) {
     this.x = getRandomInt(0, 4);
     this.y = getRandomInt(0, 4);
     this.color = 'black';
@@ -32,7 +33,7 @@ export class Robot {
   place(cmd: string): void {
     const newPos = cmd.split(','); // get x y f from the command
     if (newPos.length < 3) {
-      // this.printErrors('incorrect position / direction');
+      this.errorService.updateError('incorrect position/direction'); // this.printErrors('incorrect position / direction');
     } else {
       const newX = parseInt(newPos[0].trim(), 10);
       const newY = parseInt(newPos[1].trim(), 10);

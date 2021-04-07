@@ -69,7 +69,7 @@ export class AppComponent implements AfterViewInit{
   }
 
   restart(): void {
-    this.robot = new Robot(this.canvasService);
+    this.robot = new Robot(this.canvasService, this.errorService);
     this.goal = new Goal();
     if (this.canvasService.atGoal(this.robot, this.goal)){
       this.restart();
