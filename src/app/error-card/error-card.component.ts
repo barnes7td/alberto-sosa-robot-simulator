@@ -12,7 +12,6 @@ export class ErrorCardComponent implements OnInit, OnDestroy{
   public errors: string[] = [];
   public subscription: Subscription;
 
-  public errMsgs: Observable<string[]>;
 
 
   constructor(private errorService: ErrorReporterService) { }
