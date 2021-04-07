@@ -12,7 +12,11 @@ export class InputCommandComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onEnter(e): void {
+  /**
+   * @param e this is an $event
+   * @returns void
+   */
+  onEnter(e: any): void {
       // e.target.select(); // TODO idk what this is for if possible remove
       return this.userCommand.emit({value: e.target.value});
   }
