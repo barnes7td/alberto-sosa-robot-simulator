@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { ErrorReporterService } from '../shared/services/error-reporter.service';
 
@@ -7,7 +7,7 @@ import { ErrorReporterService } from '../shared/services/error-reporter.service'
   templateUrl: './error-card.component.html',
   styleUrls: ['./error-card.component.scss']
 })
-export class ErrorCardComponent implements OnInit {
+export class ErrorCardComponent implements OnInit, OnDestroy{
 
   public errors: string[] = [];
   public subscription: Subscription;
@@ -19,6 +19,10 @@ export class ErrorCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.subscription = this.errorService.getError().subscribe(msg => { msg === 'clear' ? this.errors = [] : this.errors.push(msg); } );
+  }
+
+  ngOnDestroy(): void{
+    this.subscription.unsubscribe();
   }
 
   removeError(err: string): string[]{
