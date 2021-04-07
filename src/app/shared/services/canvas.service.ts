@@ -58,6 +58,7 @@ export class CanvasService {
       }
       default:
         console.error(`Invalid orientation ${robot.f}`);
+        this.errorService.updateError(`Invalid orientation ${robot.f}`);
         return false;
     }
   }
