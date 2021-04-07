@@ -56,7 +56,6 @@ export class AppComponent implements AfterViewInit{
    */
 
   onUserCommand(e: any): void{
-    console.log('declare it as ', typeof e);
     const sanitizedValue = e.value.trim().toLocaleLowerCase();
     const sanitizedValueArray = sanitizedValue.split(' ');
     const firstWordEntered = sanitizedValueArray.splice(0, 1)[0];
