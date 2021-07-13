@@ -13,14 +13,14 @@ export class CanvasService {
   // TODO declare robot facing as enum but then you have to change more stuff
   robotFacing = ['north', 'east', 'south', 'west']; // clockwise
 
-  private readonly maxX = 5; // x total
-  private readonly maxY = 5; // y total
-  private readonly squareSize = 100; // all grids are equal width and height
+  private readonly maxX = 20; // x total
+  private readonly maxY = 20; // y total
+  private readonly squareSize = 25; // all grids are equal width and height
   private readonly xStart = 50; // axis x starts from 50px
   private readonly yStart = 50; // axis y starts from 50px
   private readonly xEnd = this.xStart + this.squareSize * this.maxX; // axis x starts from 50px
   private readonly yEnd = this.yStart + this.squareSize * this.maxY; // axis y starts from 50px
-  private robotSize = 25; // is the arrow size actually
+  private robotSize = 15; // is the arrow size actually
   private context;
 
   constructor(private errorService: ErrorReporterService) {
@@ -74,7 +74,7 @@ export class CanvasService {
       this.context.moveTo(currentAxisX, this.yStart);
       this.context.lineTo(currentAxisX, this.yEnd);
 
-      this.context.strokeText(x, currentAxisX + 50, this.yEnd + 20); // mark x index
+      this.context.strokeText(x, currentAxisX + 12, this.yEnd + 20); // mark x index
     }
 
     for (let y = 0; y < (this.maxY + 1); y++) {
@@ -82,7 +82,7 @@ export class CanvasService {
       this.context.moveTo(this.xStart, currentAxisY);
       this.context.lineTo(this.xEnd, currentAxisY);
 
-      this.context.strokeText((this.maxY - 1 - y), this.xStart - 20, currentAxisY + 50); // mark y index
+      this.context.strokeText((this.maxY - 1 - y), this.xStart - 20, currentAxisY + 20); // mark y index
     }
 
     this.context.stroke();
@@ -113,8 +113,8 @@ export class CanvasService {
   }
 
   renderRobot(robot): void {
-    const robotAxisX = (robot.x + 1) * 100; // the center of the destination grid horizontally
-    const robotAxisY = (this.maxY - robot.y) * 100; // the center of the destination grid vertically
+    const robotAxisX = (robot.x + 1) * 25; // the center of the destination grid horizontally
+    const robotAxisY = (this.maxY - robot.y) * 25; // the center of the destination grid vertically
 
     const path = new Path2D();
     switch (robot.f) {
@@ -151,9 +151,9 @@ export class CanvasService {
   }
 
   renderGoal(robot: Robot, goal: Goal): void {
-    const centerX = (goal.x + 1) * 100;
-    const centerY = (this.maxY - goal.y) * 100;
-    const radius = 35;
+    const centerX = (goal.x + 1) * 25;
+    const centerY = (this.maxY - goal.y) * 25;
+    const radius = 5;
 
     const context = this.context;
 

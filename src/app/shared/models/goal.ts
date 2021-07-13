@@ -9,8 +9,8 @@ export class Goal {
   public readonly y: number;
 
   constructor() {
-        this.x = getRandomInt(0, 4);
-        this.y = getRandomInt(0, 4);
+        this.x = getRandomInt(0, 19);
+        this.y = getRandomInt(0, 19);
         console.log(`Goal positioned at ${this.x}, ${this.y}`);
   }
 }
