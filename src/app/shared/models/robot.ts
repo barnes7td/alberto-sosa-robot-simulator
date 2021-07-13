@@ -13,6 +13,7 @@ export class Robot {
   public y: number;
   public color: string;
   public f: string;
+  public balls: number;
 
   constructor(private canvasService: CanvasService, private errorService: ErrorReporterService) {
     this.x = getRandomInt(0, 4);
@@ -86,10 +87,23 @@ export class Robot {
   left(): void {
     this.rotate(false); // get the next from this.robotFacing array in anti-clockwise direction
   }
-
-  right(): void {
-    this.rotate(true); // get the next from this.robotFacing array in clockwise direction
+  arrowUp():void {
+    this.f = 'north'
+    this.move();
   }
+  arrowDown(): void {
+    this.f = 'south'
+    this.move();
+  }
+  arrowLeft(): void {
+    this.f = 'west'
+    this.move();
+  }
+  arrowRight(): void {
+    this.f = 'east'
+    this.move();
+  }
+
 
   rotate(clockwise: boolean): void {
     const originalFacing = this.f;

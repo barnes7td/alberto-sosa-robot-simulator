@@ -35,14 +35,17 @@ export class CanvasService {
     this.renderCanvas();
     this.renderGoal(robot, goal);
     this.renderRobot(robot);
+    if (this.atGoal(robot, goal)){
+
+    }
   }
 
   // NOTE: if you have private params and declare type you would not be able to verify this
-  atGoal(robot: Robot, goal: Goal): boolean {
+  atGoal(robot, goal: Goal): boolean {
     return (robot.x === goal.x && robot.y === goal.y);
   }
 
-  wallInFront(robot: Robot): boolean {
+  wallInFront(robot): boolean {
     switch (robot.f) {
       case 'north': {
         return robot.y === this.maxY - 1;
@@ -109,7 +112,7 @@ export class CanvasService {
     }
   }
 
-  renderRobot(robot: Robot): void {
+  renderRobot(robot): void {
     const robotAxisX = (robot.x + 1) * 100; // the center of the destination grid horizontally
     const robotAxisY = (this.maxY - robot.y) * 100; // the center of the destination grid vertically
 

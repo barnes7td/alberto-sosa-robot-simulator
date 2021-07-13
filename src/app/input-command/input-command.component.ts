@@ -10,6 +10,7 @@ export class InputCommandComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    window.addEventListener('keydown', (e)=>{this.move(e)} );
   }
 
   /**
@@ -20,4 +21,9 @@ export class InputCommandComponent implements OnInit {
       // e.target.select(); // TODO idk what this is for if possible remove
       return this.userCommand.emit({value: e.target.value});
   }
+
+  move(e:any): void{
+    return this.userCommand.emit({value: e.key});
+  }
+
 }

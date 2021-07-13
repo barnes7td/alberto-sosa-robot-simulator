@@ -1,17 +1,4 @@
-<div>
-  <div id="info">
-    <h2>{{ title }}</h2>
-    <div>
-      <app-instructions></app-instructions>
-    </div>
-  </div>
-  <main>
-    <app-input-command (userCommand)="onUserCommand($event)">
-    </app-input-command>
-    <app-error-card></app-error-card>
-    <div class="content">
-      <app-status [currentRobot]="robot"></app-status>
-    </div>
-    <canvas #canvasRef id="c" width="551" height="580"></canvas>
-  </main>
-</div>
+<app-init-loading></app-init-loading>
+<!-- 
+
+<app-game-board></app-game-board> -->
