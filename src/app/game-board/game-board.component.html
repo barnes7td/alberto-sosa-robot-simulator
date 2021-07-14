@@ -1,0 +1,15 @@
+<div>
+    <div id="info">
+      <h2>{{ title }}</h2>
+    </div>
+    <main>
+      <app-input-command (userCommand)="onUserCommand($event)">
+      </app-input-command>
+      <app-error-card></app-error-card>
+      <div class="content">
+        <!-- <app-status [currentRobot]="robot"></app-status> -->
+      </div>
+      <div><p>points: {{points}}</p></div>
+      <canvas #canvasRef id="c" width="551" height="580"></canvas>
+    </main>
+  </div>

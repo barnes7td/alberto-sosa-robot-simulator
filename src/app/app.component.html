@@ -1,14 +1,4 @@
-<div>
-  <h2>Robot Simulator</h2>
-  <app-instructions></app-instructions>
-  <main>
-    <app-input-command
-      (userCommand)="onUserCommand($event)">
-    </app-input-command>
-    <div class="content">
-     <app-status
-      [currentRobot]="robot"></app-status>
-    </div>
-    <canvas #canvasRef id="c" width="551" height="580"></canvas>
-  </main>
-</div>
+<!-- <app-init-loading></app-init-loading> -->
+
+
+<app-game-board></app-game-board>

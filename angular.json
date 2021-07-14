@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "angular-robot-simulator"
+  "defaultProject": "angular-robot-simulator",
+  "cli": {
+    "analytics": "93c76903-72d6-4f07-8881-a3608f9efafa"
+  }
 }

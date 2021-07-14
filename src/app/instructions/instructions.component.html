@@ -1,13 +1,18 @@
-<p>The application can read commands in following format (case insensitive): </p>
+<p>This project implements a simulator for a small robot named Sally (triangle). Sally can
+  move forward and turn left and right. Sally's objective is to find the goal (circle) on
+  the map.</p>
+
+<p>Sally can respond to the following commands: </p>
 <dl>
-  <dt>RESTART</dt>
+  <dt>RESTART - ex:<strong id='ex1'>restart</strong></dt>
   <dd>Clear the state and shuffle the goal and robot locations</dd>
-  <dt>MOVE</dt>
+  <dt>MOVE - ex:<strong id='ex2'>move</strong></dt>
   <dd>Move the robot one step forward</dd>
-  <dt>LEFT</dt>
+  <dt>LEFT - ex:<strong id='ex3'>left</strong></dt>
   <dd>Turn the robot 90 degrees to the left</dd>
-  <dt>RIGHT</dt>
+  <dt>RIGHT  ex:<strong id='ex4'>right</strong></dt>
   <dd>Turn the robot 90 degrees to the right</dd>
-  <dt>PLACE X,Y,F - where F is one of ['north', 'south', 'east', west']</dt>
+  <dt>PLACE X,Y,F - ex:<strong id='ex5'>place 1,2,west</strong></dt>
+  <dd>Where X is number on x axis, Y is a number on Y axis, and F is north, south, east, or west.</dd>
   <dd>'Warp' the robot to a new position and orientation. This is 'cheating', but useful for debugging.</dd>
 </dl>
